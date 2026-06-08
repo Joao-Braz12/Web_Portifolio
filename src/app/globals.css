@@ -1,26 +1,177 @@
 @import "tailwindcss";
 
+/* ---------------------------------------------------------------------------
+   João Pedro Braz — portfolio theme
+   Earthy / warm dark palette (from reference/colours.jpeg). No purple, no orange:
+   olive is the primary accent, sand the highlight.
+--------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --base: #211b1f; /* page background, a touch deeper than #261F23 */
+  --surface: #261f23; /* near-black panels */
+  --card: #322f2b; /* elevated cards (warm gray, slightly darkened) */
+  --card-2: #3d3b36; /* warm gray */
+  --depth: #472421; /* maroon — depth / secondary surface */
+  --olive: #918b40; /* primary accent */
+  --olive-bright: #b3ac5a; /* hover / brighter accent */
+  --sand: #d9c38c; /* highlight text */
+
+  --text: #f1ece1; /* warm off-white */
+  --muted: #b3aa9c; /* secondary text */
+  --faint: #7c746a; /* tertiary / labels */
+  --line: rgba(217, 195, 140, 0.12); /* hairline borders (sand, low alpha) */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-base: var(--base);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-2: var(--card-2);
+  --color-depth: var(--depth);
+  --color-olive: var(--olive);
+  --color-olive-bright: var(--olive-bright);
+  --color-sand: var(--sand);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--base);
+  color: var(--text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  /* Fine grain texture over the whole page for atmosphere */
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Headings use the display face */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: var(--olive);
+  color: #1a1410;
+}
+
+/* ---- Reusable atmosphere: soft radial "aurora" blur ------------------- */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora-olive {
+  background: radial-gradient(circle, var(--olive) 0%, transparent 70%);
+}
+.aurora-sand {
+  background: radial-gradient(circle, var(--sand) 0%, transparent 70%);
+}
+.aurora-maroon {
+  background: radial-gradient(circle, var(--depth) 0%, transparent 70%);
+}
+
+/* ---- Glassy card ------------------------------------------------------ */
+.glass {
+  background: linear-gradient(
+    160deg,
+    rgba(61, 59, 54, 0.55) 0%,
+    rgba(38, 31, 35, 0.65) 100%
+  );
+  border: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+/* ---- Pill button ------------------------------------------------------ */
+.pill {
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.pill-primary {
+  background: var(--olive);
+  color: #16130a;
+}
+.pill-primary:hover {
+  background: var(--olive-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(145, 139, 64, 0.6);
+}
+.pill-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+.pill-ghost:hover {
+  border-color: var(--sand);
+  color: var(--sand);
+  transform: translateY(-2px);
+}
+
+/* Mono labels like "001 / Work" */
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* ---- Tech strip marquee ---------------------------------------------- */
+.marquee {
+  animation: marquee 32s linear infinite;
+}
+.group:hover .marquee {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
