@@ -28,7 +28,7 @@ export function About() {
                   style={{ width: 280, height: 280, inset: 0, opacity: 0.35 }}
                 />
                 <Image
-                  src="/headshot.jpg"
+                  src="/me.png"
                   alt={a.photoAlt}
                   width={360}
                   height={360}

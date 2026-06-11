@@ -19,7 +19,7 @@ export const projects: Project[] = [
     title: "Safety Manager",
     tagline: "Full-stack safety-management platform",
     description:
-      "A workplace safety-management app: track incidents, equipment and compliance. Server-rendered, type-safe end to end, containerised for deploy.",
+      "A workplace safety app for tracking incidents, equipment and compliance. Server-rendered, type-safe from top to bottom, and boxed up in Docker so deploys stay boring.",
     stack: ["Next.js", "TypeScript", "Prisma", "Docker", "Vercel"],
     repo: `${GH}/safety-manager-next`,
     accent: "olive",
@@ -30,7 +30,7 @@ export const projects: Project[] = [
     title: "Streamberry",
     tagline: "REST API for movies & TV shows",
     description:
-      "A Spring Boot REST API to catalogue and manage movies and series — clean layered architecture, persistence and endpoints built and tested by hand.",
+      "A Spring Boot REST API for cataloguing movies and series. Clean layered architecture, real persistence, and endpoints I built and tested by hand instead of hoping for the best.",
     stack: ["Java", "Spring", "Maven"],
     repo: `${GH}/Streamberry`,
     accent: "sand",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     title: "Cardeal Waterproofing",
     tagline: "Client landing page",
     description:
-      "A conversion-focused landing page for a waterproofing business — responsive layout, clear service breakdown and a direct contact path, hand-coded.",
+      "A landing page for a waterproofing business, built to turn visitors into calls. Responsive layout, a clear rundown of services, and an easy way to get in touch. All hand-coded.",
     stack: ["HTML", "CSS", "JavaScript"],
     repo: `${GH}/Cardeal-waterproofing`,
     accent: "maroon",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     title: "Sala de Estudos",
     tagline: "Study-room website",
     description:
-      "A website for a study-room space — schedules, information and a clean, calm interface aimed at students. Built from scratch with vanilla web tech.",
+      "A site for a study-room space, with schedules, info, and a calm interface that won't stress out students who are already stressed enough. Built from scratch with plain web tech.",
     stack: ["HTML", "CSS", "JavaScript"],
     repo: `${GH}/Sala_estudos`,
     accent: "olive",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     title: "Men's Clothing Store",
     tagline: "Storefront concept",
     description:
-      "A men's clothing storefront — product layout, navigation and a bold visual identity, focused on a clean shopping browse experience.",
+      "A men's clothing storefront with a bold visual identity, tidy product layout, and navigation that gets out of the way so you can just browse.",
     stack: ["HTML", "CSS", "JavaScript"],
     repo: `${GH}/Men-clothes-website`,
     accent: "sand",

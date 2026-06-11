@@ -21,14 +21,14 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "João Pedro Braz — Backend-focused Developer",
+  title: "João Pedro Braz, Backend-focused Developer",
   description:
-    "Backend-focused developer — Java & Spring, PostgreSQL, Docker — with full-stack reach in Next.js and React. Based in Almada, Portugal.",
+    "Backend-focused developer working in Java & Spring, PostgreSQL and Docker, with full-stack reach in Next.js and React. Based in Almada, Portugal.",
   authors: [{ name: "João Pedro Braz" }],
   openGraph: {
-    title: "João Pedro Braz — Backend-focused Developer",
+    title: "João Pedro Braz, Backend-focused Developer",
     description:
-      "Java & Spring, PostgreSQL, Docker — with full-stack reach in Next.js and React.",
+      "Java & Spring, PostgreSQL and Docker, with full-stack reach in Next.js and React.",
     type: "website",
   },
 };
